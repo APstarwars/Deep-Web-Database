@@ -3,7 +3,7 @@ const defaultRouter = require('koa-router')({
     prefix: '/api/v1'
 });
 // Define other branching routers
-
+const domainRouter = require('./domain.js');
 // Default routes
 defaultRouter.get('/', ctx => {
     ctx.status = 200;
@@ -11,6 +11,7 @@ defaultRouter.get('/', ctx => {
 });
 
 // Other routes
+defaultRouter.use(domainRouter.routes());
 
 // Inject routes into Koa API
 function addRouters (api) {
