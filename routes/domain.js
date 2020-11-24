@@ -4,7 +4,9 @@ const domainRoute = require('koa-router')({
 });
 
 domainRoute.get('/', domainController.showOnline);
-domainRoute.post('/', domainController.addDomain);
 domainRoute.post('/update', domainController.updateDomain);
+domainRoute.get('/mirrors/:site', domainController.showMirrors);
+
+domainRoute.post('/', domainController.addDomain);
 
 module.exports = domainRoute;

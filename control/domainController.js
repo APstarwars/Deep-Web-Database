@@ -34,6 +34,25 @@ class DomainController {
         });
     }
 
+    // Lists mirrors of a database
+    static async showMirrors (ctx) {
+        return new Promise((resolve, reject) => {
+            console.log(ctx.params.site);
+            const query = 'SELECT domain FROM Mirror_Domain WHERE document IN (SELECT document FROM Mirror_Domain WHERE domain=?);'
+            connection.query({
+                sql: query,
+                values: [ctx.params.site]
+            }, (err, res) => {
+                if (err) reject(err);
+                ctx.status = 200;
+                ctx.body = res;
+                resolve();
+            });
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
     // Adds a domain to the database
     static async addDomain (ctx) {
         return new Promise((resolve, reject) => {
