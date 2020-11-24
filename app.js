@@ -1,9 +1,9 @@
-const koa = require('koa');
+const Koa = require('koa');
 const bodyparser = require('koa-bodyparser');
 const json = require('koa-json');
 const routes = require('./routes/default');
 
-const app = new koa();
+const app = new Koa();
 const port = 8229;
 
 app.use(bodyparser());

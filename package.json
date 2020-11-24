@@ -2,9 +2,9 @@
   "name": "deep-web-database",
   "version": "1.0.0",
   "description": "CS 355",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "test": "nodemon app.js"
   },
   "repository": {
     "type": "git",
