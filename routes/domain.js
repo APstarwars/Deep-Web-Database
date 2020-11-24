@@ -4,6 +4,7 @@ const domainRoute = require('koa-router')({
 });
 
 domainRoute.get('/', domainController.showOnline);
+domainRoute.post('/', domainController.addDomain);
 domainRoute.post('/update', domainController.updateDomain);
 
 module.exports = domainRoute;
