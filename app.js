@@ -1,26 +1,15 @@
-const mysql = require('mysql');
-const express = require('express');
-const fs = require('fs');
+const koa = require('koa');
+const bodyparser = require('koa-bodyparser');
+const json = require('koa-json');
+const routes = require('./routes/default');
 
-const app = express();
-const port = 8080;
+const app = new koa();
+const port = 8229;
 
-var con = mysql.createConnection({
-	host: "localhost",
-	database: "mvonblan_cs355fl20",
-	user: "mvonblan_cs355fl20",
-	password: "vo7615745"
-});
+app.use(bodyparser());
+app.use(json());
 
-con.connect(function(err) {
-	if (err) throw err;
-	console.log("Connected!");
-});
-
-app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-	res.redirect('/index.html');
-});
+// Injecting the routes
+routes(app);
 
 app.listen(port, () => {console.log(`Listening on http://blue.cs.sonoma.edu:${port}/`)});
