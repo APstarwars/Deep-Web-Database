@@ -4,5 +4,6 @@ const searchRoute = require('koa-router')({
 });
 
 searchRoute.get('/:search', searchController.search);
+searchRoute.get('/source/:search', searchController.searchSource);
 
 module.exports = searchRoute;
