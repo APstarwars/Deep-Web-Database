@@ -40,6 +40,23 @@ class SearchController {
     }
 
     // Lists domains tied to a specific reference
+    static async searchReference (ctx) {
+        return new Promise((resolve, reject) => {
+            console.log(ctx.params.search);
+            const query = 'SELECT * FROM Domain WHERE onion_link IN (SELECT domain FROM Domain_Reference WHERE reference=?);'
+            connection.query({
+                sql: query,
+                values: [ctx.params.search]
+            }, (err, res) => {
+                if (err) reject(err);
+                ctx.status = 200;
+                ctx.body = res;
+                resolve();
+            });
+        }).catch(err => {
+            console.log(err);
+        });
+    }
 }
 
 module.exports = SearchController;
