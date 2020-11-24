@@ -19,6 +19,44 @@ class InsertController {
             console.log(err);
         });
     }
+
+    // Adds a source to the database
+    static async addSource (ctx) {
+        return new Promise((resolve, reject) => {
+            console.log(ctx.request.body);
+            const query = 'INSERT INTO Source VALUES (?,?)';
+            connection.query({
+                sql: query,
+                values: [ctx.request.body.clearnet_link, ctx.request.body.name]
+            }, (err, res) => {
+                if (err) reject(err);
+                ctx.status = 200;
+                ctx.body = res;
+                resolve();
+            })
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
+    // Adds a reference to the database
+    static async addReference (ctx) {
+        return new Promise((resolve, reject) => {
+            console.log(ctx.request.body);
+            const query = 'INSERT INTO Reference VALUES (?)';
+            connection.query({
+                sql: query,
+                values: [ctx.request.body.clearnet_link]
+            }, (err, res) => {
+                if (err) reject(err);
+                ctx.status = 200;
+                ctx.body = res;
+                resolve();
+            })
+        }).catch(err => {
+            console.log(err);
+        });
+    }
 }
 
 module.exports = InsertController;

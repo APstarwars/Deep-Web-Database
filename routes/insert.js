@@ -4,5 +4,7 @@ const insertRoute = require('koa-router')({
 });
 
 insertRoute.post('/domain', insertController.addDomain);
+insertRoute.post('/source', insertController.addSource);
+insertRoute.post('/reference', insertController.addReference);
 
 module.exports = insertRoute;
