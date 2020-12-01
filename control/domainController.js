@@ -1,3 +1,5 @@
+// Interfaces with database for domain oriented usecases
+
 const connection = require('../database/connector');
 
 class DomainController {

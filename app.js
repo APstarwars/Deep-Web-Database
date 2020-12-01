@@ -1,3 +1,6 @@
+// Main application control program //
+// Deep Web Domain Server Application created by Max vonBlankenburg //
+
 const Koa = require('koa');
 const bodyparser = require('koa-bodyparser');
 const json = require('koa-json');

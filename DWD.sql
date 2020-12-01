@@ -1,3 +1,5 @@
+/* Creates and populates the database */
+
 USE mvonblan_cs355fl20;
 
 DROP TABLE IF EXISTS Domain_Source;

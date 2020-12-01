@@ -1,3 +1,5 @@
+// Interfaces with database for data creation usecases
+
 const connection = require('../database/connector');
 
 class InsertController {

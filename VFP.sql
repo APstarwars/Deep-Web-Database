@@ -1,3 +1,5 @@
+/* Various useful views, functions, procedures and queries */
+
 use mvonblan_cs355fl20;
 
 /*Lists accessible Domains*/

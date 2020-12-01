@@ -1,3 +1,5 @@
+// Database connection program
+
 const mysql = require('mysql');
 
 const dbConnection = mysql.createConnection({

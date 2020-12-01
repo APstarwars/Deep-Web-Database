@@ -1,3 +1,5 @@
+// Interfaces with database for search engine usecases
+
 const connection = require('../database/connector');
 
 class SearchController {
